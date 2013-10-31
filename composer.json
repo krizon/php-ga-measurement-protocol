@@ -1,0 +1,19 @@
+{
+    "name": "krizon/php-ga-measurement-protocol",
+    "description": "Easy use of the Google Analytics Measurement Protocol in PHP",
+    "require": {
+        "guzzle/guzzle": "dev-master"
+    },
+    "require-dev": {
+        "phpunit/phpunit": ">=3.7.28"
+    },
+    "authors": [
+        {
+            "name": "Kristian Zondervan",
+            "email": "kristian.zondervan@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-0": { "Krizon": "src/" }
+    }
+}

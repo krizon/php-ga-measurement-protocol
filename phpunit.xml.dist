@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit bootstrap="tests/bootstrap.php" colors="true">
+    <testsuites>
+        <testsuite name="Google Analytics Measurement Protocol Client Test Suite">
+            <directory>tests/Krizon/Google/Analytics/MeasurementProtocol/</directory>
+        </testsuite>
+    </testsuites>
+    <filter>
+        <whitelist>
+            <directory suffix=".php">src/Krizon/Google/Analytics/MeasurementProtocol/</directory>
+        </whitelist>
+    </filter>
+    <php>
+        <var name="tracking_id" value="UA-XXXXXX-X"/>
+    </php>
+    <exclude>
+        <group>internet</group>
+    </exclude>
+</phpunit>
