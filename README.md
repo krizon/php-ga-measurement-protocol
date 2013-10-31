@@ -2,6 +2,7 @@ Google Analytics Measurement Protocol PHP Client
 ===========================================================================================
 
 [![Build Status](https://travis-ci.org/krizon/php-ga-measurement-protocol.png?branch=master)](https://travis-ci.org/krizon/php-ga-measurement-protocol)
+[![Scrutinizer Quality Score](https://scrutinizer-ci.com/g/krizon/php-ga-measurement-protocol/badges/quality-score.png?s=690ba3465d629f9876678af9ae4a41a346c994ab)](https://scrutinizer-ci.com/g/krizon/php-ga-measurement-protocol/)
 
 This library is currently in development but will be tagged 1.0 by the end of november 2013 when all
 features are implemented.
