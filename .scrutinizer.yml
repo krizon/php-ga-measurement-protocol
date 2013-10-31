@@ -1,0 +1,9 @@
+filter:
+    excluded_paths: [vendor/*]
+
+tools:
+    php_pdepend: true
+    php_code_coverage: true
+
+before_commands:
+    - "composer install --prefer-source"
