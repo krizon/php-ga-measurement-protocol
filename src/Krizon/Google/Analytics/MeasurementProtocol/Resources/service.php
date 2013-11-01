@@ -86,6 +86,83 @@ return array(
                     'location' => 'postField',
                 ),
             )
+        ),
+        'transaction' => array(
+            'extends' => 'abstract.collect',
+            'parameters' => array(
+                't' => array(
+                    'description' => 'Transaction hit type',
+                    'location' => 'postField',
+                    'default' => 'transaction',
+                    'static' => true
+                ),
+                'ti' => array(
+                    'description' => 'transaction ID',
+                    'location' => 'postField',
+                    'required' => true
+                ),
+                'ta' => array(
+                    'description' => 'Transaction affiliation',
+                    'location' => 'postField',
+                ),
+                'tr' => array(
+                    'description' => 'Transaction revenue',
+                    'location' => 'postField',
+                ),
+                'ts' => array(
+                    'description' => 'Transaction shipping',
+                    'location' => 'postField',
+                ),
+                'tt' => array(
+                    'description' => 'Transaction shipping',
+                    'location' => 'postField',
+                ),
+                'cu' => array(
+                    'description' => 'Currency code',
+                    'location' => 'postField',
+                ),
+            )
+        ),
+        'item' => array(
+            'extends' => 'abstract.collect',
+            'parameters' => array(
+                't' => array(
+                    'description' => 'Item hit type',
+                    'location' => 'postField',
+                    'default' => 'item',
+                    'static' => true
+                ),
+                'ti' => array(
+                    'description' => 'transaction ID',
+                    'location' => 'postField',
+                    'required' => true
+                ),
+                'in' => array(
+                    'description' => 'Item name',
+                    'location' => 'postField',
+                    'required' => true
+                ),
+                'ip' => array(
+                    'description' => 'Item price',
+                    'location' => 'postField',
+                ),
+                'iq' => array(
+                    'description' => 'Item quantity',
+                    'location' => 'postField',
+                ),
+                'ic' => array(
+                    'description' => 'Item quantity',
+                    'location' => 'postField',
+                ),
+                'iv' => array(
+                    'description' => 'Item variation / category',
+                    'location' => 'postField',
+                ),
+                'cu' => array(
+                    'description' => 'Currency code',
+                    'location' => 'postField',
+                ),
+            )
         )
     )
 );

@@ -101,6 +101,55 @@ class MeasurementProtocolClientTest extends GuzzleTestCase
         $this->testEvent(false);
     }
 
+    public function testTransaction($mockResponse = true)
+    {
+        $response = $this->getResponse('event', array(
+            'tid' => $this->getTrackingId(),
+            'cid' => $this->getCustomerId(),
+            'ti' => time(),
+            'ta' => 'westernWear',
+            'tr' => '50.00',
+            'ts' => '32.00',
+            'tt' => '12.00',
+            'cu' => 'EUR'
+        ), $mockResponse);
+
+        $this->assertEquals(200, $response->getStatusCode());
+    }
+
+    /**
+     * @group internet
+     */
+    public function testTransactionLive()
+    {
+        $this->testTransaction(false);
+    }
+
+    public function testTransactionItem($mockResponse = true)
+    {
+        $response = $this->getResponse('event', array(
+            'tid' => $this->getTrackingId(),
+            'cid' => $this->getCustomerId(),
+            'ti' => time(),
+            'in' => 'sofa',
+            'ip' => 300,
+            'iq' => 2,
+            'ic' => 'u3eqds43',
+            'iv' => 'furniture',
+            'cu' => 'EUR'
+        ), $mockResponse);
+
+        $this->assertEquals(200, $response->getStatusCode());
+    }
+
+    /**
+     * @group internet
+     */
+    public function testTransactionItemLive()
+    {
+        $this->testTransactionItem(false);
+    }
+
     protected function getResponse($operation, array $parameters, $mockResponse = true)
     {
         /** @var MeasurementProtocolClient $client */
