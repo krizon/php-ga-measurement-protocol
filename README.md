@@ -14,9 +14,9 @@ Features
 -------------------------------------------------------------------------------------------
 - Page tracking
 - Event tracking
-- Ecommerce tracking (todo)
-- Social interactions tracking (todo)
-- Exception tracking (todo)
+- Ecommerce tracking
+- Social interactions tracking
+- Exception tracking
 - User timing tracking (todo)
 - App tracking (todo)
 - Non-blocking requests (todo)
