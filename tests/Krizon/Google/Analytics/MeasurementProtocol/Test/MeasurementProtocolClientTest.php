@@ -150,6 +150,47 @@ class MeasurementProtocolClientTest extends GuzzleTestCase
         $this->testTransactionItem(false);
     }
 
+    public function testSocial($mockResponse = true)
+    {
+        $response = $this->getResponse('social', array(
+            'tid' => $this->getTrackingId(),
+            'cid' => $this->getCustomerId(),
+            'sa' => 'like',
+            'sn' => 'facebook',
+            'st' => '/home',
+        ), $mockResponse);
+
+        $this->assertEquals(200, $response->getStatusCode());
+    }
+
+    /**
+     * @group internet
+     */
+    public function testSocialLive()
+    {
+        $this->testSocial(false);
+    }
+
+    public function testException($mockResponse = true)
+    {
+        $response = $this->getResponse('exception', array(
+            'tid' => $this->getTrackingId(),
+            'cid' => $this->getCustomerId(),
+            'exd' => 'IOException',
+            'exf' => 1
+        ), $mockResponse);
+
+        $this->assertEquals(200, $response->getStatusCode());
+    }
+
+    /**
+     * @group internet
+     */
+    public function testExceptionLive()
+    {
+        $this->testException(false);
+    }
+
     protected function getResponse($operation, array $parameters, $mockResponse = true)
     {
         /** @var MeasurementProtocolClient $client */

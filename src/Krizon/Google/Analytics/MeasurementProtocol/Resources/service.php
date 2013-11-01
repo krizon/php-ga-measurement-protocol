@@ -163,6 +163,51 @@ return array(
                     'location' => 'postField',
                 ),
             )
+        ),
+        'social' => array(
+            'extends' => 'abstract.collect',
+            'parameters' => array(
+                't' => array(
+                    'description' => 'Social hit type',
+                    'location' => 'postField',
+                    'default' => 'social',
+                    'static' => true
+                ),
+                'sa' => array(
+                    'description' => 'Social Action',
+                    'location' => 'postField',
+                    'required' => true
+                ),
+                'sn' => array(
+                    'description' => 'Social Network',
+                    'location' => 'postField',
+                    'required' => true
+                ),
+                'st' => array(
+                    'description' => 'Social Target',
+                    'location' => 'postField',
+                    'required' => true
+                ),
+            )
+        ),
+        'exception' => array(
+            'extends' => 'abstract.collect',
+            'parameters' => array(
+                't' => array(
+                    'description' => 'Exception hit type',
+                    'location' => 'postField',
+                    'default' => 'exception',
+                    'static' => true
+                ),
+                'exd' => array(
+                    'description' => 'Exception description',
+                    'location' => 'postField'
+                ),
+                'exf' => array(
+                    'description' => 'Exception is fatal?',
+                    'location' => 'postField'
+                )
+            )
         )
     )
 );
