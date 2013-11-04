@@ -15,5 +15,6 @@
     ],
     "autoload": {
         "psr-0": { "Krizon": "src/" }
-    }
+    },
+    "license": "MIT"
 }
