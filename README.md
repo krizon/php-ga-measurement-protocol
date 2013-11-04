@@ -63,3 +63,7 @@ be sure the requests are transferred and handled correctly you can run the tests
 this group make sure you've configured the correct tracking id in the phpunit.xml configuration by set the env variable
 ```tracking_id```. This group is excluded by default but you can run this tests by calling:
 ```$ vendor/bin/phpunit --group internet```
+
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/krizon/php-ga-measurement-protocol/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
