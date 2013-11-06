@@ -5,7 +5,7 @@ Google Analytics Measurement Protocol PHP Client
 [![Scrutinizer Quality Score](https://scrutinizer-ci.com/g/krizon/php-ga-measurement-protocol/badges/quality-score.png?s=690ba3465d629f9876678af9ae4a41a346c994ab)](https://scrutinizer-ci.com/g/krizon/php-ga-measurement-protocol/)
 [![Code Coverage](https://scrutinizer-ci.com/g/krizon/php-ga-measurement-protocol/badges/coverage.png?s=17fc1b99fc85fec329329b96ecca1838fe3a5b7d)](https://scrutinizer-ci.com/g/krizon/php-ga-measurement-protocol/)
 
-A full featured php client for the Google Analytics Measurment Protocol API. Build upon the great shoulders of Guzzle. This library is currently in development but will be tagged 1.0 by the end of november 2013 when all
+A full featured php client for the Google Analytics Measurment Protocol API. Build upon the shoulders of the great [Guzzle](http://docs.guzzlephp.org/en/latest/). This library is currently in development but will be tagged 1.0 by the end of november 2013 when all
 features are implemented.
 
 See https://developers.google.com/analytics/devguides/collection/protocol/v1/devguide
