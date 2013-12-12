@@ -151,7 +151,7 @@ return array(
                     'location' => 'postField',
                 ),
                 'ic' => array(
-                    'description' => 'Item quantity',
+                    'description' => 'Item code / SKU',
                     'location' => 'postField',
                 ),
                 'iv' => array(
