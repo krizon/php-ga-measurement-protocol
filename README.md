@@ -59,7 +59,7 @@ We have two types of tests:
 asserting classtypes etc.;
 * Tests that do real calls to the Google API, @group ```internet```. The Google API itself always returns a 200 OK so to
 be sure the requests are transferred and handled correctly you can run the tests of group 'internet'. Before running
-this group make sure you've configured the correct tracking id in the phpunit.xml configuration by set the env variable
+this group make sure you've configured the correct tracking id in the phpunit.xml configuration by setting the env variable
 ```tracking_id```. This group is excluded by default but you can run this tests by calling:
 ```$ vendor/bin/phpunit --group internet```
 
