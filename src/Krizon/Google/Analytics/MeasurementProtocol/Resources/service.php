@@ -114,7 +114,7 @@ return array(
                     'location' => 'postField',
                 ),
                 'tt' => array(
-                    'description' => 'Transaction shipping',
+                    'description' => 'Transaction tax',
                     'location' => 'postField',
                 ),
                 'cu' => array(
