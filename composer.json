@@ -14,7 +14,7 @@
         }
     ],
     "suggest": {
-        "ramsey/uuid": "Generate RFC 4122 UUID with PHP.",
+        "ramsey/uuid": "Generate RFC 4122 UUID with PHP."
     },
     "autoload": {
         "psr-0": { "Krizon": "src/" }
