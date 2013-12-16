@@ -13,6 +13,9 @@
             "email": "kristian.zondervan@gmail.com"
         }
     ],
+    "suggest": {
+        "ramsey/uuid": "Generate RFC 4122 UUID with PHP.",
+    },
     "autoload": {
         "psr-0": { "Krizon": "src/" }
     },
