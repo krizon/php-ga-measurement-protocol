@@ -12,6 +12,7 @@
 namespace Krizon\Google\Analytics\MeasurementProtocol;
 
 use Guzzle\Common\Collection;
+use Guzzle\Http\Message\Request;
 use Guzzle\Service\Client;
 use Guzzle\Service\Description\ServiceDescription;
 
@@ -19,7 +20,10 @@ class MeasurementProtocolClient extends Client
 {
     public static function factory($config = array())
     {
-        $default = array('ssl' => false);
+        $default = array(
+            'ssl' => false,
+            'tid' => null
+        );
         $required = array('ssl');
 
         $config = Collection::fromConfig($config, $default, $required);
@@ -30,6 +34,14 @@ class MeasurementProtocolClient extends Client
 
         $description = ServiceDescription::factory(__DIR__ . '/Resources/service.php');
         $client->setDescription($description);
+
+        if (true === isset($config['tid'])) {
+            $client->getEventDispatcher()->addListener('command.before_prepare', function (\Guzzle\Common\Event $e) use($config) {
+                if (false === $e['command']->hasKey('tid')) {
+                    $e['command']->set('tid', $config['tid']);
+                }
+            });
+        }
 
         return $client;
     }

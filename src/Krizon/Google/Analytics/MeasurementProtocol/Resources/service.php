@@ -23,8 +23,8 @@ return array(
                     'static' => true
                 ),
                 'tid' => array(
-                    'location' => 'postField',
-                    'required' => true
+                    'location' => 'query',
+                    'required' => true,
                 ),
                 'cid' => array(
                     'location' => 'postField',
