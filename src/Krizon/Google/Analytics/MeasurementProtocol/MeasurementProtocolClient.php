@@ -36,13 +36,7 @@ class MeasurementProtocolClient extends Client
         $client->setDescription($description);
 
         if (true === isset($config['tid'])) {
-            $client->getEventDispatcher()->addListener('client.create_request', function ($e) use ($config) {
-                /** @var Request $request */
-                $request = $e['request'];
-                if (false === $request->getQuery()->hasKey('tid')) {
-                    $request->getQuery()->set('tid', $config['tid']);
-                }
-            });
+            $client->setDefaultOption('query/tid', $config['tid']);
         }
 
         return $client;
