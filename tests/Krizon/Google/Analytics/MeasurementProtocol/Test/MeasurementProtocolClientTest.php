@@ -20,6 +20,11 @@ use Krizon\Google\Analytics\MeasurementProtocol\MeasurementProtocolClient;
 
 class MeasurementProtocolClientTest extends GuzzleTestCase
 {
+    /**
+     * @var null|HistoryPlugin
+     */
+    private $history = null;
+
     public function testFactoryInitializesClient()
     {
         $client = MeasurementProtocolClient::factory();
@@ -191,10 +196,44 @@ class MeasurementProtocolClientTest extends GuzzleTestCase
         $this->testException(false);
     }
 
-    protected function getResponse($operation, array $parameters, $mockResponse = true)
+    public function testTrackingIdAsDefault()
     {
-        /** @var MeasurementProtocolClient $client */
-        $client = $this->getServiceBuilder()->get('ga_measurement_protocol');
+        $this->getResponse('abstract.collect', array(
+            'cid' => $this->getCustomerId(),
+        ), true, MeasurementProtocolClient::factory(array('tid' => 'X2')));
+        $this->assertEquals('X2', $this->history->getLastRequest()->getQuery()->get('tid'));
+
+    }
+
+    public function testTrackingIdAsParam()
+    {
+        $this->getResponse('abstract.collect', array(
+            'tid' => 'X1',
+            'cid' => $this->getCustomerId(),
+        ), true);
+        $this->assertEquals('X1', $this->history->getLastRequest()->getQuery()->get('tid'));
+    }
+
+    public function testTrackingIdAsParamWins()
+    {
+        $this->getResponse('abstract.collect', array(
+            'tid' => 'X3',
+            'cid' => $this->getCustomerId(),
+        ), true,  MeasurementProtocolClient::factory(array('tid' => 'X4')));
+        $this->assertEquals('X3', $this->history->getLastRequest()->getQuery()->get('tid'));
+    }
+
+    /**
+     * @param $operation
+     * @param array $parameters
+     * @param bool $mockResponse
+     * @return Response
+     */
+    protected function getResponse($operation, array $parameters, $mockResponse = true, MeasurementProtocolClient $client = null)
+    {
+        if (null === $client) {
+            $client = $this->getServiceBuilder()->get('ga_measurement_protocol');
+        }
 
         if (true === $mockResponse) {
             $mock = new MockPlugin(array(new Response('200')), true);
@@ -204,6 +243,7 @@ class MeasurementProtocolClientTest extends GuzzleTestCase
         $history = new HistoryPlugin();
         $history->setLimit(3);
         $client->addSubscriber($history);
+        $this->history = $history;
 
         $return = call_user_func(array($client, $operation), $parameters);
 
