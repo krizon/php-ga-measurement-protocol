@@ -36,7 +36,11 @@ class MeasurementProtocolClient extends Client
         $client->setDescription($description);
 
         if (true === isset($config['tid'])) {
-            $client->setDefaultOption('query/tid', $config['tid']);
+            $client->getEventDispatcher()->addListener('command.before_prepare', function (\Guzzle\Common\Event $e) use($config) {
+                if (false === $e['command']->hasKey('tid')) {
+                    $e['command']->set('tid', $config['tid']);
+                }
+            });
         }
 
         return $client;
