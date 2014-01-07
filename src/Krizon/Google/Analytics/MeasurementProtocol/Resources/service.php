@@ -24,7 +24,7 @@ return array(
                 ),
                 'tid' => array(
                     'location' => 'query',
-//                    'required' => true,
+                    'required' => true,
                 ),
                 'cid' => array(
                     'location' => 'postField',
