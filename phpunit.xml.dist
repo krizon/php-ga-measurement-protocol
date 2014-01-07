@@ -11,7 +11,7 @@
         </whitelist>
     </filter>
     <php>
-        <var name="tracking_id" value="UA-XXXXXX-X"/>
+        <env name="tracking_id" value="UA-XXXXXX-X"/>
     </php>
     <groups>
         <exclude>
