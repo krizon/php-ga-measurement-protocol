@@ -13,7 +13,9 @@
     <php>
         <var name="tracking_id" value="UA-XXXXXX-X"/>
     </php>
-    <exclude>
-        <group>internet</group>
-    </exclude>
+    <groups>
+        <exclude>
+            <group>internet</group>
+        </exclude>
+    </groups>
 </phpunit>
