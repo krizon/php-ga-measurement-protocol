@@ -58,7 +58,7 @@ return array(
                 'cm18' => array('location' => 'postField'),
                 'cm19' => array('location' => 'postField'),
                 'cm20' => array('location' => 'postField'),
-                'cm1' => array(
+                'cd1' => array(
                     'description' => 'Custom dimension 1',
                     'location' => 'postField',
                 ),
