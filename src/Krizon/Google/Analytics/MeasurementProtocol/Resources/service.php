@@ -34,7 +34,53 @@ return array(
                     'location' => 'header',
                     'sentAs' => 'User-Agent',
                     'default' => 'PHP GA Measurement Protocol'
-                )
+                ),
+                'cm1' => array(
+                    'description' => 'Custom metric 1',
+                    'location' => 'postField',
+                ),
+                'cm2' => array('location' => 'postField'),
+                'cm3' => array('location' => 'postField'),
+                'cm4' => array('location' => 'postField'),
+                'cm5' => array('location' => 'postField'),
+                'cm6' => array('location' => 'postField'),
+                'cm7' => array('location' => 'postField'),
+                'cm8' => array('location' => 'postField'),
+                'cm9' => array('location' => 'postField'),
+                'cm10' => array('location' => 'postField'),
+                'cm11' => array('location' => 'postField'),
+                'cm12' => array('location' => 'postField'),
+                'cm13' => array('location' => 'postField'),
+                'cm14' => array('location' => 'postField'),
+                'cm15' => array('location' => 'postField'),
+                'cm16' => array('location' => 'postField'),
+                'cm17' => array('location' => 'postField'),
+                'cm18' => array('location' => 'postField'),
+                'cm19' => array('location' => 'postField'),
+                'cm20' => array('location' => 'postField'),
+                'cd1' => array(
+                    'description' => 'Custom dimension 1',
+                    'location' => 'postField',
+                ),
+                'cd2' => array('location' => 'postField'),
+                'cd3' => array('location' => 'postField'),
+                'cd4' => array('location' => 'postField'),
+                'cd5' => array('location' => 'postField'),
+                'cd6' => array('location' => 'postField'),
+                'cd7' => array('location' => 'postField'),
+                'cd8' => array('location' => 'postField'),
+                'cd9' => array('location' => 'postField'),
+                'cd10' => array('location' => 'postField'),
+                'cd11' => array('location' => 'postField'),
+                'cd12' => array('location' => 'postField'),
+                'cd13' => array('location' => 'postField'),
+                'cd14' => array('location' => 'postField'),
+                'cd15' => array('location' => 'postField'),
+                'cd16' => array('location' => 'postField'),
+                'cd17' => array('location' => 'postField'),
+                'cd18' => array('location' => 'postField'),
+                'cd19' => array('location' => 'postField'),
+                'cd20' => array('location' => 'postField'),
             )
         ),
         'pageview' => array(
@@ -84,7 +130,7 @@ return array(
                 'ev' => array(
                     'description' => 'Event value',
                     'location' => 'postField',
-                ),
+                )
             )
         ),
         'transaction' => array(
