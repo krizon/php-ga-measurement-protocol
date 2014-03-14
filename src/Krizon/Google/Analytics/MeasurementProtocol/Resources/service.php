@@ -4,9 +4,14 @@
  * This file is part of the php-ga-measurement-protocol package.
  *
  * (c) Kristian Zondervan <kristian.zondervan@gmail.com>
+ * (c) Alexandre Assouad <alexandre.assouad@gmail.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
+ *
+ * for more information, refer to google documentation :
+ * https://developers.google.com/analytics/devguides/collection/protocol/v1/parameters
+ *
  */
 
 return array(
@@ -30,6 +35,83 @@ return array(
                     'location' => 'postField',
                     'required' => true
                 ),
+                /** Content information **/
+                'dl' => array(
+                    'description' => 'Document location url',
+                    'location' => 'postField',
+                ),
+                'dh' => array(
+                    'description' => 'Document hostname',
+                    'location' => 'postField',
+                ),
+                'dp' => array(
+                    'description' => 'Document path',
+                    'location' => 'postField',
+                ),
+                'dt' => array(
+                    'description' => 'Document title',
+                    'location' => 'postField',
+                ),
+                'cd' => array(
+                    'description' => 'Content description',
+                    'location' => 'postField',
+                ),
+                'linkid' => array(
+                    'description' => 'The ID of a clicked DOM element',
+                    'location' => 'postField',
+                ),
+                /** Session **/
+                'sc' => array(
+                    'location' => 'postField',
+                    'description' => 'Session control',
+                ),
+                /** Traffic Sources **/
+                'dr' => array(
+                    'location' => 'postField',
+                    'description' => 'Document referrer',
+                ),
+                'cn' => array(
+                    'location' => 'postField',
+                    'description' => 'Specifies the campaign name',
+                ),
+                'cr' => array(
+                    'location' => 'postField',
+                    'description' => 'Specifies the campaign source',
+                ),
+                'cm' => array(
+                    'location' => 'postField',
+                    'description' => 'Specifies the campaign medium',
+                ),
+                'ck' => array(
+                    'location' => 'postField',
+                    'description' => 'Specifies the campaign keyword',
+                ),
+                'cc' => array(
+                    'location' => 'postField',
+                    'description' => 'Specifies the campaign content',
+                ),
+                'ci' => array(
+                    'location' => 'postField',
+                    'description' => 'Specifies the campaign ID',
+                ),
+                'gclid' => array(
+                    'location' => 'postField',
+                    'description' => 'Specifies the Google AdWords Id',
+                ),
+                'dclid' => array(
+                    'location' => 'postField',
+                    'description' => 'Specifies the Google Display Ads Id',
+                ),
+                /** Application tracking **/
+                'an' => array(
+                    'location' => 'postField',
+                    'description' => 'Application name',
+                ),
+                'av' => array(
+                    'description' => 'Application version',
+                    'location' => 'postField'
+                ),
+                /** unofficial **/
                 'ua' => array(
                     'location' => 'postField',
                     'description' => 'User-agent override',
@@ -94,19 +176,7 @@ return array(
                     'location' => 'postField',
                     'default' => 'pageview',
                     'static' => true
-                ),
-                'dh' => array(
-                    'description' => 'Document hostname',
-                    'location' => 'postField',
-                ),
-                'dp' => array(
-                    'description' => 'Page',
-                    'location' => 'postField',
-                ),
-                'dt' => array(
-                    'description' => 'Title',
-                    'location' => 'postField',
-                ),
+                )
             )
         ),
         'event' => array(
