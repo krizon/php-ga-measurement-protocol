@@ -111,6 +111,15 @@ return array(
                     'description' => 'Application version',
                     'location' => 'postField'
                 ),
+                /** Content Experiments **/
+                'xid' => array(
+                    'location' => 'postField',
+                    'description' => 'Experiment ID',
+                ),
+                'xvar' => array(
+                    'description' => 'Experiment variant',
+                    'location' => 'postField'
+                ),
                 /** unofficial **/
                 'ua' => array(
                     'location' => 'postField',
