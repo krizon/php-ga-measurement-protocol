@@ -31,9 +31,12 @@ return array(
                     'required' => true
                 ),
                 'ua' => array(
-                    'location' => 'header',
-                    'sentAs' => 'User-Agent',
-                    'default' => 'PHP GA Measurement Protocol'
+                    'location' => 'postField',
+                    'description' => 'User-agent override',
+                ),
+                'uip' => array(
+                    'description' => 'ip override',
+                    'location' => 'postField'
                 ),
                 'cm1' => array(
                     'description' => 'Custom metric 1',
