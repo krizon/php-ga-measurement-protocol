@@ -12,6 +12,7 @@
 namespace Krizon\Google\Analytics\MeasurementProtocol\Test;
 
 use Guzzle\Http\Message\Response;
+use Guzzle\Plugin\Async\AsyncPlugin;
 use Guzzle\Plugin\History\HistoryPlugin;
 use Guzzle\Plugin\Mock\MockPlugin;
 use Guzzle\Service\Exception\ValidationException;
@@ -40,6 +41,18 @@ class MeasurementProtocolClientTest extends GuzzleTestCase
         ));
         $this->assertEquals('https://ssl.google-analytics.com', $client->getBaseUrl());
         $this->assertTrue($client->getConfig('ssl'));
+    }
+
+    public function testFactoryInitializesClientWithAsync()
+    {
+        $client = MeasurementProtocolClient::factory(array(
+            'async' => true
+        ));
+        $this->assertEquals('http://www.google-analytics.com', $client->getBaseUrl());
+        // We try to check if the is asynch plugin is correctly registered in the listeners list
+        $ed = $client-> getEventDispatcher()->getListeners();
+        $classList = array_map(function($elt){return get_class($elt[0]);}, $ed['request.sent']);
+        $this->assertContains(get_class(new AsyncPlugin()), $classList);
     }
 
     public function testAbstractCollect()
