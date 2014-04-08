@@ -1,6 +1,7 @@
 {
     "name": "krizon/php-ga-measurement-protocol",
     "description": "Easy use of the Google Analytics Measurement Protocol in PHP",
+    "minimum-stability": "dev",
     "require": {
         "guzzle/guzzle": "~3.7"
     },
@@ -19,5 +20,10 @@
     "autoload": {
         "psr-0": { "Krizon": "src/" }
     },
-    "license": "MIT"
+    "license": "MIT",
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0.x-dev"
+        }
+    }
 }
