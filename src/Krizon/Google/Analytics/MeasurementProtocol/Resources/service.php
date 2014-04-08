@@ -335,6 +335,35 @@ return array(
                     'location' => 'postField'
                 )
             )
+        ),
+        'campaign' => array(
+            'extends' => 'pageview',
+            'parameters' => array(
+                'cn' => array(
+                    'description' => 'Campaign Name',
+                    'location' => 'postField',
+                ),
+                'cs' => array(
+                    'description' => 'Campaign Source',
+                    'location' => 'postField',
+                ),
+                'cm' => array(
+                    'description' => 'Campaign Medium',
+                    'location' => 'postField',
+                ),
+                'ck' => array(
+                    'description' => 'Campaign Keyword',
+                    'location' => 'postField',
+                ),
+                'cc' => array(
+                    'description' => 'Campaign Content',
+                    'location' => 'postField',
+                ),
+                'ci' => array(
+                    'description' => 'Campaign ID',
+                    'location' => 'postField',
+                )
+            )
         )
     )
 );
