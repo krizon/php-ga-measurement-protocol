@@ -67,6 +67,7 @@ Contributors
 -------------------------------------------------------------------------------------------
 * [Kristian Zondervan](https://github.com/krizon)
 * [Alexandre Assouad](https://github.com/t0k4rt)
+* [Matt Weghorst](https://github.com/mattweg)
 
 [![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/krizon/php-ga-measurement-protocol/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
 
