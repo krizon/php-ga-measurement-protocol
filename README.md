@@ -4,6 +4,7 @@ Google Analytics Measurement Protocol PHP Client
 [![Build Status](https://travis-ci.org/krizon/php-ga-measurement-protocol.png?branch=master)](https://travis-ci.org/krizon/php-ga-measurement-protocol)
 [![Scrutinizer Quality Score](https://scrutinizer-ci.com/g/krizon/php-ga-measurement-protocol/badges/quality-score.png?s=690ba3465d629f9876678af9ae4a41a346c994ab)](https://scrutinizer-ci.com/g/krizon/php-ga-measurement-protocol/)
 [![Code Coverage](https://scrutinizer-ci.com/g/krizon/php-ga-measurement-protocol/badges/coverage.png?s=17fc1b99fc85fec329329b96ecca1838fe3a5b7d)](https://scrutinizer-ci.com/g/krizon/php-ga-measurement-protocol/)
+[![Latest Stable Version](https://poser.pugx.org/krizon/php-ga-measurement-protocol/v/stable.png)](https://packagist.org/packages/krizon/php-ga-measurement-protocol) [![Total Downloads](https://poser.pugx.org/krizon/php-ga-measurement-protocol/downloads.png)](https://packagist.org/packages/krizon/php-ga-measurement-protocol) [![Latest Unstable Version](https://poser.pugx.org/krizon/php-ga-measurement-protocol/v/unstable.png)](https://packagist.org/packages/krizon/php-ga-measurement-protocol) [![License](https://poser.pugx.org/krizon/php-ga-measurement-protocol/license.png)](https://packagist.org/packages/krizon/php-ga-measurement-protocol)
 
 A full featured php client for the Google Analytics Measurment Protocol API. Build upon the shoulders of the great [Guzzle](http://docs.guzzlephp.org/en/latest/).
 
