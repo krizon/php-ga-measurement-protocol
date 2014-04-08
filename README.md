@@ -63,6 +63,10 @@ this group make sure you've configured the correct tracking id in the phpunit.xm
 ```tracking_id```. This group is excluded by default but you can run this tests by calling:
 ```$ vendor/bin/phpunit --group internet```
 
+Contributors
+-------------------------------------------------------------------------------------------
+* [Kristian Zondervan](https://github.com/krizon)
+* [Alexandre Assouad](https://github.com/t0k4rt)
 
 [![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/krizon/php-ga-measurement-protocol/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
 
