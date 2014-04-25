@@ -224,19 +224,29 @@ class MeasurementProtocolClientTest extends GuzzleTestCase
     }
 
     /**
+     * @expectedException \Guzzle\Http\Exception\ServerErrorResponseException
+     */
+    public function testBadGatewayTriggersException()
+    {
+        $this->getResponse('abstract.collect', array(
+            'cid' => $this->getCustomerId(),
+        ), true,  MeasurementProtocolClient::factory(array('tid' => 'BDGW')), 502);
+    }
+
+    /**
      * @param $operation
      * @param array $parameters
      * @param bool $mockResponse
      * @return Response
      */
-    protected function getResponse($operation, array $parameters, $mockResponse = true, MeasurementProtocolClient $client = null)
+    protected function getResponse($operation, array $parameters, $mockResponse = true, MeasurementProtocolClient $client = null, $statusCode = 200)
     {
         if (null === $client) {
             $client = $this->getServiceBuilder()->get('ga_measurement_protocol');
         }
 
         if (true === $mockResponse) {
-            $mock = new MockPlugin(array(new Response('200')), true);
+            $mock = new MockPlugin(array(new Response($statusCode)), true);
             $client->addSubscriber($mock);
         }
 
