@@ -237,6 +237,25 @@ class MeasurementProtocolClientTest extends GuzzleTestCase
     }
 
     /**
+     * @group internet
+     */
+    public function testAsyncRequestLive()
+    {
+        $client = MeasurementProtocolClient::factory(array(
+            'async' => true
+        ));
+        $response = $this->getResponse('pageview', array(
+            'tid' => $this->getTrackingId(),
+            'cid' => $this->getCustomerId(),
+            't' => 'pageview',
+            'dh' => 'domain.do',
+            'dp' => '/php-ga-measurement-protocol/phpunit-test/async',
+            'dt' => 'PHP GA Measurement Protocol Async'
+        ), false, $client);
+        $this->assertEquals(200, $response->getStatusCode());
+    }
+
+    /**
      * @param $operation
      * @param array $parameters
      * @param bool $mockResponse
