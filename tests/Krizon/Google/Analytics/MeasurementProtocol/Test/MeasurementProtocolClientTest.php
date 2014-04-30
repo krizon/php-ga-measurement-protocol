@@ -233,6 +233,22 @@ class MeasurementProtocolClientTest extends GuzzleTestCase
         ), true,  MeasurementProtocolClient::factory(array('tid' => 'BDGW')), 502);
     }
 
+    public function testModifyProxyCurlSetting()
+    {
+        $proxy = 'tcp://localhost:80';
+        $client = MeasurementProtocolClient::factory(array(
+            'tid' => $this->getTrackingId(),
+            'curl.options' => array(
+                'CURLOPT_PROXY'   => $proxy
+            )
+        ));
+        $this->getResponse('abstract.collect', array(
+            'cid' => $this->getCustomerId(),
+        ), true, $client);
+        $requestCurlOptions = $this->history->getLastRequest()->getCurlOptions();
+        $this->assertSame($proxy, $requestCurlOptions[CURLOPT_PROXY]);
+    }
+
     /**
      * @param $operation
      * @param array $parameters
