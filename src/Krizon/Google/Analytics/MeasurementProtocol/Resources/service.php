@@ -248,6 +248,12 @@ return array(
                     'description' => 'Currency code',
                     'location' => 'postField',
                 ),
+
+                // enchaned ecommerce
+                'tcc' => array(
+                    'description' => 'Transaction coupon code',
+                    'location' => 'postField',
+                ),
             )
         ),
         'item' => array(
@@ -266,8 +272,7 @@ return array(
                 ),
                 'in' => array(
                     'description' => 'Item name',
-                    'location' => 'postField',
-                    'required' => true
+                    'location' => 'postField'
                 ),
                 'ip' => array(
                     'description' => 'Item price',
@@ -288,6 +293,56 @@ return array(
                 'cu' => array(
                     'description' => 'Currency code',
                     'location' => 'postField',
+                ),
+
+                // enchanced ecommerce
+                'pr[\d+]id' => array(
+                    'description' => 'Item code / SKU',
+                    'location' => 'postField',
+                ),
+                'pr[\d+]nm' => array(
+                    'description' => 'Item name',
+                    'location' => 'postField'
+                ),
+                'pr[\d+]br' => array(
+                    'description' => 'Item brand',
+                    'location' => 'postField'
+                ),
+                'pr[\d+]ca' => array(
+                    'description' => 'Item category',
+                    'location' => 'postField'
+                ),
+                'pr[\d+]va' => array(
+                    'description' => 'Item variation',
+                    'location' => 'postField'
+                ),
+                'pr[\d+]pr' => array(
+                    'description' => 'Item price',
+                    'location' => 'postField'
+                ),
+                'pr[\d+]qt' => array(
+                    'description' => 'Item quantity',
+                    'location' => 'postField'
+                ),
+                'pr[\d+]cc' => array(
+                    'description' => 'Item coupon code',
+                    'location' => 'postField'
+                ),
+                'pr[\d+]ps' => array(
+                    'description' => 'Item position',
+                    'location' => 'postField'
+                ),
+                'pr[\d+]cd[index]' => array(
+                    'description' => 'Item custom dimension',
+                    'location' => 'postField'
+                ),
+                'pr[\d+]cm[index]' => array(
+                    'description' => 'Item custom metric',
+                    'location' => 'postField'
+                ),
+                'pa' => array(
+                    'description' => 'Item action',
+                    'location' => 'postField'
                 ),
             )
         ),
