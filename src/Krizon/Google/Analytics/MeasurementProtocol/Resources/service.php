@@ -73,7 +73,7 @@ return array(
                     'location' => 'postField',
                     'description' => 'Specifies the campaign name',
                 ),
-                'cr' => array(
+                'cs' => array(
                     'location' => 'postField',
                     'description' => 'Specifies the campaign source',
                 ),
