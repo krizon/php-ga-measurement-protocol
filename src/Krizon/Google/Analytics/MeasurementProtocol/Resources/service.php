@@ -119,6 +119,36 @@ return array(
                     'description' => 'Experiment variant',
                     'location' => 'postField'
                 ),
+                /** System info **/
+                'sr' => array(
+                    'description' => 'Screen resolution',
+                    'location' => 'postField'
+                ),
+                'vp' => array(
+                    'description' => 'Viewport size',
+                    'location' => 'postField'
+                ),
+                'de' => array(
+                    'description' => 'Document encoding',
+                    'location' => 'postField',
+                    'default' => 'UTF-8'
+                ),
+                'sd' => array(
+                    'description' => 'Screen colors',
+                    'location' => 'postField'
+                ),
+                'ul' => array(
+                    'description' => 'User language',
+                    'location' => 'postField'
+                ),
+                'je' => array(
+                    'description' => 'Java enabled',
+                    'location' => 'postField'
+                ),
+                'fl' => array(
+                    'description' => 'Flash version',
+                    'location' => 'postField'
+                ),
                 /** unofficial **/
                 'ua' => array(
                     'location' => 'postField',
