@@ -54,6 +54,12 @@ class MeasurementProtocolClientTest extends GuzzleTestCase
             'ul' => 'en-us',
             'je' => '1',
             'fl' => '10 1 r103',
+            'aip' => '1',
+            'qt' => '560',
+            'uid' => $this->getCustomerId(),
+            'aid' => 'com.company.app',
+            'aiid' => 'com.platform.vending',
+            'ni' => '1',
         ), true);
         $this->assertEquals(200, $response->getStatusCode());
     }

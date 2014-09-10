@@ -30,9 +30,22 @@ return array(
                     'location' => 'query',
                     'required' => true,
                 ),
+                'aip' => array(
+                    'description' => 'Anonymize IP',
+                    'location' => 'postField'
+                ),
+                'qt' => array(
+                    'description' => 'Queue Time',
+                    'location' => 'postField'
+                ),
+                /** User **/
                 'cid' => array(
                     'location' => 'postField',
                     'required' => true
+                ),
+                'uid' => array(
+                    'description' => 'User id',
+                    'location' => 'postField'
                 ),
                 /** Content information **/
                 'dl' => array(
@@ -106,8 +119,16 @@ return array(
                     'location' => 'postField',
                     'description' => 'Application name',
                 ),
+                'aid' => array(
+                    'description' => 'Application id',
+                    'location' => 'postField'
+                ),
                 'av' => array(
                     'description' => 'Application version',
+                    'location' => 'postField'
+                ),
+                'aiid' => array(
+                    'description' => 'Application installer id',
                     'location' => 'postField'
                 ),
                 /** Content Experiments **/
@@ -147,6 +168,11 @@ return array(
                 ),
                 'fl' => array(
                     'description' => 'Flash version',
+                    'location' => 'postField'
+                ),
+                /** Hit */
+                'ni' => array(
+                    'description' => 'Non-Interaction Hit',
                     'location' => 'postField'
                 ),
                 /** unofficial **/
