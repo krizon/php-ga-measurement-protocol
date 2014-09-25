@@ -30,9 +30,22 @@ return array(
                     'location' => 'query',
                     'required' => true,
                 ),
+                'aip' => array(
+                    'description' => 'Anonymize IP',
+                    'location' => 'postField'
+                ),
+                'qt' => array(
+                    'description' => 'Queue Time',
+                    'location' => 'postField'
+                ),
+                /** User **/
                 'cid' => array(
                     'location' => 'postField',
                     'required' => true
+                ),
+                'uid' => array(
+                    'description' => 'User id',
+                    'location' => 'postField'
                 ),
                 /** Content information **/
                 'dl' => array(
@@ -106,8 +119,16 @@ return array(
                     'location' => 'postField',
                     'description' => 'Application name',
                 ),
+                'aid' => array(
+                    'description' => 'Application id',
+                    'location' => 'postField'
+                ),
                 'av' => array(
                     'description' => 'Application version',
+                    'location' => 'postField'
+                ),
+                'aiid' => array(
+                    'description' => 'Application installer id',
                     'location' => 'postField'
                 ),
                 /** Content Experiments **/
@@ -117,6 +138,41 @@ return array(
                 ),
                 'xvar' => array(
                     'description' => 'Experiment variant',
+                    'location' => 'postField'
+                ),
+                /** System info **/
+                'sr' => array(
+                    'description' => 'Screen resolution',
+                    'location' => 'postField'
+                ),
+                'vp' => array(
+                    'description' => 'Viewport size',
+                    'location' => 'postField'
+                ),
+                'de' => array(
+                    'description' => 'Document encoding',
+                    'location' => 'postField',
+                    'default' => 'UTF-8'
+                ),
+                'sd' => array(
+                    'description' => 'Screen colors',
+                    'location' => 'postField'
+                ),
+                'ul' => array(
+                    'description' => 'User language',
+                    'location' => 'postField'
+                ),
+                'je' => array(
+                    'description' => 'Java enabled',
+                    'location' => 'postField'
+                ),
+                'fl' => array(
+                    'description' => 'Flash version',
+                    'location' => 'postField'
+                ),
+                /** Hit */
+                'ni' => array(
+                    'description' => 'Non-Interaction Hit',
                     'location' => 'postField'
                 ),
                 /** unofficial **/

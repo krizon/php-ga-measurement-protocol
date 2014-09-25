@@ -25,7 +25,7 @@ Features
 - Social interactions tracking
 - Exception tracking
 - User timing tracking (todo)
-- App tracking (todo)
+- App tracking
 - Non-blocking requests (todo)
 
 Usage
