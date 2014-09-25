@@ -47,19 +47,6 @@ class MeasurementProtocolClientTest extends GuzzleTestCase
         $response = $this->getResponse('abstract.collect', array(
             'tid' => $this->getTrackingId(),
             'cid' => $this->getCustomerId(),
-            'sr' => '800x600',
-            'vp' => '123x456',
-            'de' => 'UTF-8',
-            'sd' => '24-bits',
-            'ul' => 'en-us',
-            'je' => '1',
-            'fl' => '10 1 r103',
-            'aip' => '1',
-            'qt' => '560',
-            'uid' => $this->getCustomerId(),
-            'aid' => 'com.company.app',
-            'aiid' => 'com.platform.vending',
-            'ni' => '1',
         ), true);
         $this->assertEquals(200, $response->getStatusCode());
     }
@@ -83,14 +70,6 @@ class MeasurementProtocolClientTest extends GuzzleTestCase
             't' => 'pageview',
             'dh' => 'domain.do',
             'dp' => '/php-ga-measurement-protocol/phpunit-test',
-            'dt' => 'PHP GA Measurement Protocol',
-            'sr' => '800x600',
-            'vp' => '123x456',
-            'de' => 'UTF-8',
-            'sd' => '24-bits',
-            'ul' => 'en-us',
-            'je' => '1',
-            'fl' => '10 1 r103',
         ), $mockResponse);
         $this->assertEquals(200, $response->getStatusCode());
     }
