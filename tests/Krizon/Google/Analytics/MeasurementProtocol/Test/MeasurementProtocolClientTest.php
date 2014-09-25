@@ -70,6 +70,7 @@ class MeasurementProtocolClientTest extends GuzzleTestCase
             't' => 'pageview',
             'dh' => 'domain.do',
             'dp' => '/php-ga-measurement-protocol/phpunit-test',
+            'dt' => 'PHP GA Measurement Protocol'
         ), $mockResponse);
         $this->assertEquals(200, $response->getStatusCode());
     }
