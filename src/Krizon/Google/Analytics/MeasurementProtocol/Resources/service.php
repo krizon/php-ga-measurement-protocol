@@ -397,7 +397,7 @@ return array(
             'extends' => 'abstract.collect',
             'parameters' => array(
                 't' => array(
-                    'description' => 'Exception hit type',
+                    'description' => 'Timing hit type',
                     'location' => 'postField',
                     'default' => 'timing',
                     'static' => true
