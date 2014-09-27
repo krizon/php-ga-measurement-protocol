@@ -196,24 +196,23 @@ class MeasurementProtocolClientTest extends GuzzleTestCase
         $this->testException(false);
     }
 
-    public function testTiming($mockResponse = true)
+    public function testPageLoadTiming($mockResponse = true)
     {
         $response = $this->getResponse('timing', array(
             'tid' => $this->getTrackingId(),
             'cid' => $this->getCustomerId(),
             't' => 'timing',
-            'utc' => 'category',
-            'utv' => 'lookup',
-            'utt' => '123',
-            'utl' => 'label',
-            'plt' => '3554',
-            'dns' => '43',
-            'pdt' => '500',
-            'rrt' => '500',
-            'tcp' => '500',
-            'srt' => '500',
-            'dit' => '500',
-            'clt' => '500',
+            'dns' => 331,
+            'pdt' => 400,
+            'rrt' => 500,
+            'tcp' => 600,
+            'srt' => 700,
+            'plt' => 3554,
+            'dit' => 800,
+            'clt' => 900,
+            'dh' => 'domain.do',
+            'dp' => '/php-ga-measurement-protocol/page-timing-test',
+            'dt' => 'PHP GA Measurement Protocol Page Load Timing Test'
         ), $mockResponse);
         $this->assertEquals(200, $response->getStatusCode());
     }
@@ -221,9 +220,31 @@ class MeasurementProtocolClientTest extends GuzzleTestCase
     /**
      * @group internet
      */
-    public function testTimingLive()
+    public function testPageLoadTimingLive()
     {
-        $this->testTiming(false);
+        $this->testPageLoadTiming(false);
+    }
+
+    public function testUserTiming($mockResponse = true)
+    {
+        $response = $this->getResponse('timing', array(
+            'tid' => $this->getTrackingId(),
+            'cid' => $this->getCustomerId(),
+            't' => 'timing',
+            'utc' => 'category',
+            'utv' => 'lookup',
+            'utt' => 10000,
+            'utl' => 'label',
+        ), $mockResponse);
+        $this->assertEquals(200, $response->getStatusCode());
+    }
+
+    /**
+     * @group internet
+     */
+    public function testUserTimingLive()
+    {
+        $this->testUserTiming(false);
     }
 
     public function testTrackingIdAsDefault()
