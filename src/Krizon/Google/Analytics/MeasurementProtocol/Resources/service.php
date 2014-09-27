@@ -391,6 +391,66 @@ return array(
                     'location' => 'postField'
                 )
             )
+        ),
+        /** Timing **/
+        'timing' => array(
+            'extends' => 'abstract.collect',
+            'parameters' => array(
+                't' => array(
+                    'description' => 'Exception hit type',
+                    'location' => 'postField',
+                    'default' => 'timing',
+                    'static' => true
+                ),
+                'utc' => array(
+                    'description' => 'User timing category',
+                    'location' => 'postField'
+                ),
+                'utv' => array(
+                    'description' => 'User timing variable name',
+                    'location' => 'postField'
+                ),
+                'utt' => array(
+                    'description' => 'User timing time',
+                    'location' => 'postField'
+                ),
+                'utl' => array(
+                    'description' => 'User timing label',
+                    'location' => 'postField'
+                ),
+                'plt' => array(
+                    'description' => 'Page Load Time',
+                    'location' => 'postField'
+                ),
+                'dns' => array(
+                    'description' => 'DNS Time',
+                    'location' => 'postField'
+                ),
+                'pdt' => array(
+                    'description' => 'Page Download Time',
+                    'location' => 'postField'
+                ),
+                'rrt' => array(
+                    'description' => 'Redirect Response Time',
+                    'location' => 'postField'
+                ),
+                'tcp' => array(
+                    'description' => 'TCP Connect Time',
+                    'location' => 'postField'
+                ),
+                'srt' => array(
+                    'description' => 'Server Response Time',
+                    'location' => 'postField'
+                ),
+                'dit' => array(
+                    'description' => 'DOM Interactive Time',
+                    'location' => 'postField'
+                ),
+                'clt' => array(
+                    'description' => 'Content Load Time',
+                    'location' => 'postField'
+                ),
+            )
         )
     )
 );

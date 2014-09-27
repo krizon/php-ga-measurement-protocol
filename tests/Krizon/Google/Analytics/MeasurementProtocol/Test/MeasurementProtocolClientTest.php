@@ -196,6 +196,36 @@ class MeasurementProtocolClientTest extends GuzzleTestCase
         $this->testException(false);
     }
 
+    public function testTiming($mockResponse = true)
+    {
+        $response = $this->getResponse('timing', array(
+            'tid' => $this->getTrackingId(),
+            'cid' => $this->getCustomerId(),
+            't' => 'timing',
+            'utc' => 'category',
+            'utv' => 'lookup',
+            'utt' => '123',
+            'utl' => 'label',
+            'plt' => '3554',
+            'dns' => '43',
+            'pdt' => '500',
+            'rrt' => '500',
+            'tcp' => '500',
+            'srt' => '500',
+            'dit' => '500',
+            'clt' => '500',
+        ), $mockResponse);
+        $this->assertEquals(200, $response->getStatusCode());
+    }
+
+    /**
+     * @group internet
+     */
+    public function testTimingLive()
+    {
+        $this->testTiming(false);
+    }
+
     public function testTrackingIdAsDefault()
     {
         $this->getResponse('abstract.collect', array(
