@@ -280,14 +280,18 @@ class MeasurementProtocolClientTest extends \PHPUnit_Framework_TestCase
         $proxy = 'tcp://localhost:80';
         $client = MeasurementProtocolClient::factory(array(
             'tid' => $this->getTrackingId(),
-            'curl.options' => array(
-                'CURLOPT_PROXY'   => $proxy
+            'defaults' => array(
+                'config' => array(
+                    'curl' => array(
+                        CURLOPT_PROXY => $proxy
+                    )
+                )
             )
         ));
         $this->getResponse('abstract.collect', array(
             'cid' => $this->getCustomerId(),
         ), true, $client);
-        $requestCurlOptions = $this->history->getLastRequest()->getCurlOptions();
+        $requestCurlOptions = $this->history->getLastRequest()->getConfig()['curl'];
         $this->assertSame($proxy, $requestCurlOptions[CURLOPT_PROXY]);
     }
 
