@@ -21,7 +21,7 @@ class MeasurementProtocolClient extends GuzzleClient
     const BASE_URL = 'http://www.google-analytics.com';
     const BASE_URL_SSL = 'https://ssl.google-analytics.com';
 
-    public static function factory($config = array())
+    public static function factory(array $config = array())
     {
         $config = array_merge(array(
             'ssl' => false,
@@ -31,16 +31,18 @@ class MeasurementProtocolClient extends GuzzleClient
         $description = include __DIR__ . '/Resources/service.php';
         $description['baseUrl'] = ($config['ssl'] === true) ? self::BASE_URL_SSL : self::BASE_URL;
 
-        $client = new Client($config);
+        $httpClient = new Client($config);
         $description = new Description($description);
-        $guzzleClient = new self($client, $description, $config);
+        $client = new self($httpClient, $description, $config);
 
-        $guzzleClient->getEmitter()->on('prepare', function(PrepareEvent $event) use($config) {
-            $command = $event->getCommand();
-            if (false === $command->hasParam('tid')) {
-                $command['tid'] = $config['tid'];
-            }
-        }, 10);
-        return $guzzleClient;
+        if (true === isset($config['tid'])) {
+            $client->getEmitter()->on('prepare', function(PrepareEvent $event) use($config) {
+                $command = $event->getCommand();
+                if (false === $command->hasParam('tid')) {
+                    $command['tid'] = $config['tid'];
+                }
+            }, 10);
+        }
+        return $client;
     }
 }
