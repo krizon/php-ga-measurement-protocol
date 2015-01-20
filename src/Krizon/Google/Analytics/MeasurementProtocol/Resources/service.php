@@ -243,6 +243,17 @@ return array(
                 )
             )
         ),
+        'screenview' => array(
+            'extends' => 'abstract.collect',
+            'parameters' => array(
+                't' => array(
+                    'description' => 'Pageview hit type',
+                    'location' => 'postField',
+                    'default' => 'screenview',
+                    'static' => true
+                )
+            )
+        ),
         'event' => array(
             'extends' => 'abstract.collect',
             'parameters' => array(
