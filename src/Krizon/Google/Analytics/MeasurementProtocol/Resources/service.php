@@ -227,6 +227,17 @@ return array(
                 'cm38' => array('location' => 'postField'),
                 'cm39' => array('location' => 'postField'),
                 'cm40' => array('location' => 'postField'),
+                'cm41' => array('location' => 'postField'),
+                'cm42' => array('location' => 'postField'),
+                'cm43' => array('location' => 'postField'),
+                'cm44' => array('location' => 'postField'),
+                'cm45' => array('location' => 'postField'),
+                'cm46' => array('location' => 'postField'),
+                'cm47' => array('location' => 'postField'),
+                'cm48' => array('location' => 'postField'),
+                'cm49' => array('location' => 'postField'),
+                'cm50' => array('location' => 'postField'),
+
                 'cd1' => array(
                     'description' => 'Custom dimension 1',
                     'location' => 'postField',
