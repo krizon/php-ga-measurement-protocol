@@ -3,7 +3,9 @@
     "description": "Easy use of the Google Analytics Measurement Protocol in PHP",
     "minimum-stability": "stable",
     "require": {
-        "guzzle/guzzle": "~3.7"
+        "php": ">=5.4.0",
+        "guzzlehttp/guzzle-services": "~0.3",
+        "guzzlehttp/guzzle": "~4.2"
     },
     "require-dev": {
         "phpunit/phpunit": ">=3.7.28"

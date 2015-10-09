@@ -11,38 +11,38 @@
 
 namespace Krizon\Google\Analytics\MeasurementProtocol;
 
-use Guzzle\Common\Collection;
-use Guzzle\Http\Message\Request;
-use Guzzle\Service\Client;
-use Guzzle\Service\Description\ServiceDescription;
+use GuzzleHttp\Client;
+use GuzzleHttp\Command\Guzzle\Description;
+use GuzzleHttp\Command\Guzzle\GuzzleClient;
+use GuzzleHttp\Command\Event\PrepareEvent;
 
-class MeasurementProtocolClient extends Client
+class MeasurementProtocolClient extends GuzzleClient
 {
-    public static function factory($config = array())
+    const BASE_URL = 'http://www.google-analytics.com';
+    const BASE_URL_SSL = 'https://ssl.google-analytics.com';
+
+    public static function factory(array $config = array())
     {
-        $default = array(
+        $config = array_merge(array(
             'ssl' => false,
             'tid' => null
-        );
-        $required = array('ssl');
+        ), $config);
 
-        $config = Collection::fromConfig($config, $default, $required);
+        $description = include __DIR__ . '/Resources/service.php';
+        $description['baseUrl'] = ($config['ssl'] === true) ? self::BASE_URL_SSL : self::BASE_URL;
 
-        $baseUrl = ($config->get('ssl') === true) ? 'https://ssl.google-analytics.com' : 'http://www.google-analytics.com';
-
-        $client = new self($baseUrl, $config);
-
-        $description = ServiceDescription::factory(__DIR__ . '/Resources/service.php');
-        $client->setDescription($description);
+        $httpClient = new Client($config);
+        $description = new Description($description);
+        $client = new self($httpClient, $description, $config);
 
         if (true === isset($config['tid'])) {
-            $client->getEventDispatcher()->addListener('command.before_prepare', function (\Guzzle\Common\Event $e) use($config) {
-                if (false === $e['command']->hasKey('tid')) {
-                    $e['command']->set('tid', $config['tid']);
+            $client->getEmitter()->on('prepare', function(PrepareEvent $event) use($config) {
+                $command = $event->getCommand();
+                if (false === $command->hasParam('tid')) {
+                    $command['tid'] = $config['tid'];
                 }
-            });
+            }, 10);
         }
-
         return $client;
     }
 }

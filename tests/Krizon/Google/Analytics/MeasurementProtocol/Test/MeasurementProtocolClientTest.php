@@ -11,17 +11,15 @@
 
 namespace Krizon\Google\Analytics\MeasurementProtocol\Test;
 
-use Guzzle\Http\Message\Response;
-use Guzzle\Plugin\History\HistoryPlugin;
-use Guzzle\Plugin\Mock\MockPlugin;
-use Guzzle\Service\Exception\ValidationException;
-use Guzzle\Tests\GuzzleTestCase;
+use GuzzleHttp\Message\Response;
+use GuzzleHttp\Subscriber\History;
+use GuzzleHttp\Subscriber\Mock;
 use Krizon\Google\Analytics\MeasurementProtocol\MeasurementProtocolClient;
 
-class MeasurementProtocolClientTest extends GuzzleTestCase
+class MeasurementProtocolClientTest extends \PHPUnit_Framework_TestCase
 {
     /**
-     * @var null|HistoryPlugin
+     * @var null|History
      */
     private $history = null;
 
@@ -29,7 +27,7 @@ class MeasurementProtocolClientTest extends GuzzleTestCase
     {
         $client = MeasurementProtocolClient::factory();
         $this->assertInstanceOf('Krizon\Google\Analytics\MeasurementProtocol\MeasurementProtocolClient', $client);
-        $this->assertEquals('http://www.google-analytics.com', $client->getBaseUrl());
+        $this->assertEquals('http://www.google-analytics.com', $client->getDescription()->getBaseUrl());
         $this->assertFalse($client->getConfig('ssl'));
     }
 
@@ -38,7 +36,7 @@ class MeasurementProtocolClientTest extends GuzzleTestCase
         $client = MeasurementProtocolClient::factory(array(
             'ssl' => true
         ));
-        $this->assertEquals('https://ssl.google-analytics.com', $client->getBaseUrl());
+        $this->assertEquals('https://ssl.google-analytics.com', $client->getDescription()->getBaseUrl());
         $this->assertTrue($client->getConfig('ssl'));
     }
 
@@ -53,13 +51,9 @@ class MeasurementProtocolClientTest extends GuzzleTestCase
 
     public function testAbstractCollectRequiredFields()
     {
-        try {
-            $this->getResponse('abstract.collect', array(), true);
-        } catch (ValidationException $e) {
-            $this->assertInstanceOf('Guzzle\Service\Exception\ValidationException', $e);
-            $this->assertSame('Validation errors: [tid] is required
-[cid] is required', $e->getMessage());
-        }
+        $this->setExpectedException('GuzzleHttp\Command\Exception\CommandException', 'Validation errors: [tid] is required
+[cid] is required');
+        $this->getResponse('abstract.collect', array(), true);
     }
 
     public function testPageview($mockResponse = true)
@@ -253,7 +247,6 @@ class MeasurementProtocolClientTest extends GuzzleTestCase
             'cid' => $this->getCustomerId(),
         ), true, MeasurementProtocolClient::factory(array('tid' => 'X2')));
         $this->assertEquals('X2', $this->history->getLastRequest()->getQuery()->get('tid'));
-
     }
 
     public function testTrackingIdAsParam()
@@ -274,11 +267,9 @@ class MeasurementProtocolClientTest extends GuzzleTestCase
         $this->assertEquals('X3', $this->history->getLastRequest()->getQuery()->get('tid'));
     }
 
-    /**
-     * @expectedException \Guzzle\Http\Exception\ServerErrorResponseException
-     */
     public function testBadGatewayTriggersException()
     {
+        $this->setExpectedException('GuzzleHttp\Command\Exception\CommandServerException');
         $this->getResponse('abstract.collect', array(
             'cid' => $this->getCustomerId(),
         ), true,  MeasurementProtocolClient::factory(array('tid' => 'BDGW')), 502);
@@ -289,14 +280,18 @@ class MeasurementProtocolClientTest extends GuzzleTestCase
         $proxy = 'tcp://localhost:80';
         $client = MeasurementProtocolClient::factory(array(
             'tid' => $this->getTrackingId(),
-            'curl.options' => array(
-                'CURLOPT_PROXY'   => $proxy
+            'defaults' => array(
+                'config' => array(
+                    'curl' => array(
+                        CURLOPT_PROXY => $proxy
+                    )
+                )
             )
         ));
         $this->getResponse('abstract.collect', array(
             'cid' => $this->getCustomerId(),
         ), true, $client);
-        $requestCurlOptions = $this->history->getLastRequest()->getCurlOptions();
+        $requestCurlOptions = $this->history->getLastRequest()->getConfig()['curl'];
         $this->assertSame($proxy, $requestCurlOptions[CURLOPT_PROXY]);
     }
 
@@ -309,22 +304,21 @@ class MeasurementProtocolClientTest extends GuzzleTestCase
     protected function getResponse($operation, array $parameters, $mockResponse = true, MeasurementProtocolClient $client = null, $statusCode = 200)
     {
         if (null === $client) {
-            $client = $this->getServiceBuilder()->get('ga_measurement_protocol');
+            $client = MeasurementProtocolClient::factory();
         }
 
         if (true === $mockResponse) {
-            $mock = new MockPlugin(array(new Response($statusCode)), true);
-            $client->addSubscriber($mock);
+            $mock = new Mock(array(new Response($statusCode)), true);
+            $client->getHttpClient()->getEmitter()->attach($mock);
         }
 
-        $history = new HistoryPlugin();
-        $history->setLimit(3);
-        $client->addSubscriber($history);
+        $history = new History(3);
+        $client->getHttpClient()->getEmitter()->attach($history);
         $this->history = $history;
 
-        $return = call_user_func(array($client, $operation), $parameters);
+        call_user_func(array($client, $operation), $parameters);
 
-        return $return;
+        return $history->getLastResponse();
     }
 
     protected function getTrackingId()

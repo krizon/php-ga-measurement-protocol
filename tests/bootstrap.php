@@ -15,11 +15,3 @@ if (!file_exists(dirname(__DIR__) . '/composer.lock')) {
 }
 
 $loader = require dirname(__DIR__) . '/vendor/autoload.php';
-
-Guzzle\Tests\GuzzleTestCase::setServiceBuilder(Guzzle\Service\Builder\ServiceBuilder::factory(array(
-    'ga_measurement_protocol' => array(
-        'class' => 'Krizon\Google\Analytics\MeasurementProtocol\MeasurementProtocolClient',
-        'params' => array(
-        )
-    )
-)));
