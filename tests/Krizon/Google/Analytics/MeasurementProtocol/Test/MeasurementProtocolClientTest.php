@@ -83,6 +83,26 @@ class MeasurementProtocolClientTest extends GuzzleTestCase
         $this->testPageview(false);
     }
 
+    public function testScreenview($mockResponse = true)
+    {
+        $response = $this->getResponse('screenview', array(
+            'tid' => $this->getTrackingId(),
+            'cid' => $this->getCustomerId(),
+            't' => 'screenview',
+            'cd' => 'Screen name / content description'
+        ), $mockResponse);
+
+        $this->assertEquals(200, $response->getStatusCode());
+    }
+
+    /**
+     * @group internet
+     */
+    public function testScreenviewLive()
+    {
+        $this->testScreenview(false);
+    }
+
     public function testEvent($mockResponse = true)
     {
         $response = $this->getResponse('event', array(
