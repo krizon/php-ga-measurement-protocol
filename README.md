@@ -14,7 +14,7 @@ Installation
 -------------------------------------------------------------------------------------------
 Use [Composer](http://getcomposer.org/doc/00-intro.md) to add this library to your dependencies:
 ```bash
-$ php composer.phar require krizon/php-ga-measurement-protocol:dev-master
+$ composer require krizon/php-ga-measurement-protocol
 ```
 
 Features
@@ -69,6 +69,4 @@ Contributors
 * [Kristian Zondervan](https://github.com/krizon)
 * [Alexandre Assouad](https://github.com/t0k4rt)
 * [Matt Weghorst](https://github.com/mattweg)
-
-[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/krizon/php-ga-measurement-protocol/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
 
