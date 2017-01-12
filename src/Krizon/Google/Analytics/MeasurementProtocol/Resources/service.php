@@ -406,7 +406,7 @@ return array(
                     'description' => 'Currency code',
                     'location' => 'postField',
                 ),
-                // enchanced ecommerce
+                // enhanced ecommerce
                 'pr1id' => array(
                     'description' => 'Item code / SKU',
                     'location' => 'postField',
