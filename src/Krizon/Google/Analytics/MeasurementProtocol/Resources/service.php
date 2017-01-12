@@ -406,6 +406,55 @@ return array(
                     'description' => 'Currency code',
                     'location' => 'postField',
                 ),
+                // enhanced ecommerce
+                'pr1id' => array(
+                    'description' => 'Item code / SKU',
+                    'location' => 'postField',
+                ),
+                'pr1nm' => array(
+                    'description' => 'Item name',
+                    'location' => 'postField'
+                ),
+                'pr1br' => array(
+                    'description' => 'Item brand',
+                    'location' => 'postField'
+                ),
+                'pr1ca' => array(
+                    'description' => 'Item category',
+                    'location' => 'postField'
+                ),
+                'pr1va' => array(
+                    'description' => 'Item variation',
+                    'location' => 'postField'
+                ),
+                'pr1pr' => array(
+                    'description' => 'Item price',
+                    'location' => 'postField'
+                ),
+                'pr1qt' => array(
+                    'description' => 'Item quantity',
+                    'location' => 'postField'
+                ),
+                'pr1cc' => array(
+                    'description' => 'Item coupon code',
+                    'location' => 'postField'
+                ),
+                'pr1ps' => array(
+                    'description' => 'Item position',
+                    'location' => 'postField'
+                ),
+                'pr1cd[index]' => array(
+                    'description' => 'Item custom dimension',
+                    'location' => 'postField'
+                ),
+                'pr1cm[index]' => array(
+                    'description' => 'Item custom metric',
+                    'location' => 'postField'
+                ),
+                'pa' => array(
+                    'description' => 'Item action',
+                    'location' => 'postField'
+                ),
             )
         ),
         'social' => array(
